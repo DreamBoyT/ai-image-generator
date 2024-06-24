@@ -19,10 +19,10 @@ app.http('httpTrigger8', {
             const results = await client.getImages(deploymentName, modifiedPrompt, { n: 1, size });
             const imageUrls = results.data.map(image => image.url);
 
-            // Set CORS headers
+            // Set CORS headers to allow requests from your Azure Static Web App
             context.res = {
                 headers: {
-                    'Access-Control-Allow-Origin': '*', // Replace with your allowed origin(s)
+                    'Access-Control-Allow-Origin': 'https://witty-wave-0feef0100.5.azurestaticapps.net', // Replace with your Azure Static Web App URL
                     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
                     'Access-Control-Allow-Headers': 'Content-Type, Authorization'
                 },
